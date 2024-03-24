@@ -11,7 +11,7 @@
         <h1>Trabalhando com números aleatórios</h1>
         <p>Gerando um número aleatório entre 0 e 100... <br>
         <?php 
-            $num = rand(0, 100);
+            $num = mt_rand(0, 100);
             echo "O valor gerado foi $num";
         ?>
         </p>

@@ -11,8 +11,10 @@
         <h1>Conversor de Moedas v1.0</h1>
         <?php 
             $num = $_GET["value"];
-            $converted = round($num / 5.22, 2);
-            echo "Seus R$$num equivalem a US$$converted.";
+            $cot = 5.22;
+            $padrao = numfmt_create("pt-BR", NumberFormatter::CURRENCY);
+            $converted = numfmt_format_currency($padrao, $num/$cot, "USD");
+            echo "Seus " . numfmt_format_currency($padrao, $num, "BRL") . " equivalem a " . $converted.".";
         ?>
         <p><strong>*Cotação fixa de R$5,22</strong> informada diretamente no código.</p>
         <button type="button" onclick="history.back()">Voltar</button>
